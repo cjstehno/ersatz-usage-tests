@@ -18,14 +18,14 @@ class GroovyUsageTest {
         server.expectations {
             GET('/hello') {
                 called 1
-                query 'name', 'Safe Groovy'
+                query 'name', 'Groovy'
                 responder {
-                    body 'Hi, Safe Groovy', TEXT_PLAIN
+                    body 'Hi, Groovy', TEXT_PLAIN
                 }
             }
         }
 
-        assertEquals('Hi, Safe Groovy', new URL(server.httpUrl('/hello?name=Safe+Groovy')).text)
+        assertEquals('Hi, Groovy', new URL(server.httpUrl('/hello?name=Groovy')).text)
         assertTrue server.verify()
     }
 }

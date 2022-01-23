@@ -11,7 +11,10 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'io.github.cjstehno.ersatz:ersatz-groovy:3.0.0:safe'
+    // FIXME: seems like some of these should be carried over
+    testImplementation 'io.github.cjstehno.ersatz:ersatz:3.0.0'
+    testImplementation 'io.github.cjstehno.ersatz:ersatz-groovy:3.0.0'
+
     testImplementation 'org.codehaus.groovy:groovy:3.0.9'
 
     testImplementation 'javax.activation:activation:1.1.1'
