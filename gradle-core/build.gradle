@@ -1,0 +1,26 @@
+plugins {
+    id 'java-library'
+}
+
+sourceCompatibility = 17
+targetCompatibility = 17
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'io.github.cjstehno.ersatz:ersatz:3.0.0'
+
+    testRuntimeOnly 'ch.qos.logback:logback-classic:1.2.10'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+    maxParallelForks = Math.min(Runtime.runtime.availableProcessors(), 8)
+}

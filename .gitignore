@@ -1,7 +1,9 @@
 build/
 .gradle/
-ersatz-groovy-safe/.gradle/**/**
-ersatz-groovy/.gradle/**/**
+gradle-groovy-safe/.gradle/**/**
+gradle-groovy/.gradle/**/**
+gradle-core/.gradle/
+gradle-core-safe/.gradle/
 **/build/
 **/.idea/
 .idea/
