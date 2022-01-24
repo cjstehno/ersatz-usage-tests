@@ -1,5 +1,5 @@
 plugins {
-    id 'groovy'
+    id 'java-library'
 }
 
 sourceCompatibility = 17
@@ -11,10 +11,11 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'io.github.cjstehno.ersatz:ersatz:3.0.0'
-    testImplementation 'io.github.cjstehno.ersatz:ersatz-groovy:3.0.0'
-
-    testImplementation 'org.codehaus.groovy:groovy:3.0.9'
+    testImplementation('io.github.cjstehno.ersatz:ersatz:3.0.0:safe'){
+    	exclude group:'io.undertow', module:'undertow-core'
+    	exclude group:'javax.servlet', module:'javax.servlet-api'
+    	exclude group:'commons-fileupload', module:'commons-fileupload'
+    }
 
     testRuntimeOnly 'ch.qos.logback:logback-classic:1.2.10'
 

@@ -2,15 +2,10 @@ package ersatz;
 
 import io.github.cjstehno.ersatz.ErsatzServer;
 import io.github.cjstehno.ersatz.junit.ErsatzServerExtension;
-import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
 import static io.github.cjstehno.ersatz.cfg.ContentType.TEXT_PLAIN;
 import static java.net.http.HttpClient.newHttpClient;
@@ -23,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ExtendWith(ErsatzServerExtension.class)
 class JavaUsageTest {
 
-    private ErsatzServer server;
+    @SuppressWarnings("unused") private ErsatzServer server;
 
     @Test void usage() throws Exception {
         server.expectations(expect -> {
@@ -31,7 +26,7 @@ class JavaUsageTest {
                 req.called(1);
                 req.query("name", "Java");
                 req.responder(res -> {
-                    res.body("Hi, Java", TEXT_PLAIN);
+                    res.body("Hi, Java Safe", TEXT_PLAIN);
                 });
             });
         });
@@ -41,7 +36,7 @@ class JavaUsageTest {
             ofString()
         );
 
-        assertEquals("Hi, Java", response.body());
+        assertEquals("Hi, Java Safe", response.body());
         assertTrue(server.verify());
     }
 }

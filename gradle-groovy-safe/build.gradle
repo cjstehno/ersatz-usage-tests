@@ -11,7 +11,11 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'io.github.cjstehno.ersatz:ersatz-groovy:3.0.0:safe'
+    testImplementation('io.github.cjstehno.ersatz:ersatz-groovy:3.0.0:safe'){
+        exclude group:'io.undertow', module:'undertow-core'
+        exclude group:'javax.servlet', module:'javax.servlet-api'
+        exclude group:'commons-fileupload', module:'commons-fileupload'
+    }
     testImplementation 'org.codehaus.groovy:groovy:3.0.9'
 
     testImplementation 'javax.activation:activation:1.1.1'
@@ -19,7 +23,6 @@ dependencies {
     testRuntimeOnly 'ch.qos.logback:logback-classic:1.2.10'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
 

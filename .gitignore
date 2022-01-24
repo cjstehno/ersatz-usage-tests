@@ -5,6 +5,7 @@ gradle-groovy/.gradle/**/**
 gradle-core/.gradle/
 gradle-core-safe/.gradle/
 **/build/
+**/target/
 **/.idea/
 .idea/
 *.iml
